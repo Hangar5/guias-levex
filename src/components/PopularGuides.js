@@ -1,7 +1,8 @@
+// PopularGuides.js
 import React, { useState, useEffect } from 'react';
 import './PopularGuides.css';
 
-function PopularGuides() {
+function PopularGuides({ search }) {
   const [guides, setGuides] = useState([]);
   const [filter, setFilter] = useState('all');
 
@@ -13,7 +14,9 @@ function PopularGuides() {
     setGuides(mockGuides);
   }, []);
 
-  const filteredGuides = filter === 'all' ? guides : guides.filter(g => g.category === filter);
+  const filteredGuides = guides
+    .filter(g => filter === 'all' || g.category === filter)
+    .filter(g => g.title.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <section className="popular-guides">
@@ -24,14 +27,18 @@ function PopularGuides() {
         <button onClick={() => setFilter('strategy')} className={filter === 'strategy' ? 'active' : ''}>Estrategia</button>
       </div>
       <div className="guide-cards">
-        {filteredGuides.map((guide, index) => (
-          <div key={index} className="guide-card">
-            <a href={guide.link}>
-              <img src={guide.image} alt={guide.title} />
-              <p>{guide.title}</p>
-            </a>
-          </div>
-        ))}
+        {filteredGuides.length > 0 ? (
+          filteredGuides.map((guide, index) => (
+            <div key={index} className="guide-card">
+              <a href={guide.link}>
+                <img src={guide.image} alt={guide.title} />
+                <p>{guide.title}</p>
+              </a>
+            </div>
+          ))
+        ) : (
+          <p>No se encontraron guías.</p>
+        )}
       </div>
       <div className="ad-placeholder">Anuncio (300x250)</div>
     </section>

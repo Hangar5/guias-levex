@@ -54,3 +54,30 @@ body {
 .discord-btn:hover {
   transform: scale(1.1);
 }
+
+.App.light .header {
+  color: #333;
+}
+
+.App.light .nav-links a,
+.App.light .search-bar,
+.App.light .popular-guides h1,
+.App.light .guide-card p,
+.App.light .footer p,
+.App.light .game-page h1,
+.App.light .tab-button,
+.App.light .tab-content,
+.App.light .updates h2,
+.App.light .updates li {
+  color: #333;
+}
+
+.App.light .search-bar {
+  background: #e0e0e0;
+}
+
+.App.light .popular-guides,
+.App.light .guide-card,
+.App.light .tab-content {
+  background: #ffffff;
+}
