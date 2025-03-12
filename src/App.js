@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className={`App ${theme}`}>
         <Header search={search} setSearch={setSearch} />
-        <button onClick={toggleTheme} className="theme-toggle">{theme === 'dark' ? '☀️' : '🌙'}</button>
+        <button onClick={toggleTheme} className="theme-toggle">{theme === 'dark' ? '🌙' : '☀️'}</button>
         <Routes>
           <Route path="/" element={<main><Slider /><PopularGuides search={search} /></main>} />
           <Route path="/guides/whiteout-survival" element={<GamePage />} />

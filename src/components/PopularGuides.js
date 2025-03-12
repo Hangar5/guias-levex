@@ -40,7 +40,6 @@ function PopularGuides({ search }) {
           <p>No se encontraron guías.</p>
         )}
       </div>
-      <div className="ad-placeholder">Anuncio (300x250)</div>
     </section>
   );
 }
